@@ -18,4 +18,10 @@ int main(int argc, char **argv)
 {
     cout << Solution() << endl;
     return 0;
+
+    auto results = Solution();
+    for (auto vec : results){
+        for(int i: vec) cout << i << " ";
+        cout << endl;
+    }
 }

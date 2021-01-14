@@ -60,12 +60,12 @@ public:
 
         vector<int> proposal;
         vector<vector<int>> solutions;
-        func(0, proposal, solutions, candidates, target);
+        DFS(0, proposal, solutions, candidates, target);
 
         return solutions;
     }
 
-    void func(int pos, vector<int> &proposal, vector<vector<int>> &solutions, const vector<int> &candidates, int target){
+    void DFS(int pos, vector<int> &proposal, vector<vector<int>> &solutions, const vector<int> &candidates, int target){
         if (!target) {
             solutions.push_back(proposal);
             return;
@@ -73,10 +73,10 @@ public:
             return;
         }
         proposal.push_back(candidates[pos]);
-        func(pos, proposal, solutions, candidates, target-candidates[pos]);
+        DFS(pos, proposal, solutions, candidates, target-candidates[pos]);
         proposal.pop_back();
 
-        func(pos+1, proposal, solutions, candidates, target);
+        DFS(pos+1, proposal, solutions, candidates, target);
     }
 };
 // @lc code=end
